@@ -59,7 +59,7 @@ static int aeApiCreate(aeEventLoop *eventLoop) {
         zfree(state);
         return -1;
     }
-    //×îºó½«stateµÄÊı¾İ¸³Öµµ½eventLoopµÄAPI dataÖĞ
+    //æœ€åå°†stateçš„æ•°æ®èµ‹å€¼åˆ°eventLoopçš„API dataä¸­
     eventLoop->apidata = state;
     return 0;
 }
@@ -116,6 +116,7 @@ static void aeApiDelEvent(aeEventLoop *eventLoop, int fd, int delmask) {
     }
 }
 
+//å°è£…äº†å¤šè·¯é€‰æ‹©çš„å®ç°ï¼Œç±»ä¼¼selectã€epoll_wait
 static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
     aeApiState *state = eventLoop->apidata;
     int retval, numevents = 0;
